@@ -1,0 +1,44 @@
+<div *ngIf="!bookingSubmitted; else confirmation">
+    <h1>Request Consultation</h1>
+    <p>Fill in the form below to request a consultation. I will get back to you as soon as possible to confirm the date
+        and time.</p>
+    <form (ngSubmit)="submitBooking()">
+        <mat-form-field>
+            <mat-label>Your Name</mat-label>
+            <input matInput [(ngModel)]="parentName" name="parentName" required>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Email</mat-label>
+            <input matInput [(ngModel)]="email" name="email" required>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Prefered date</mat-label>
+            <input matInput [matDatepicker]="picker" [(ngModel)]="selectedDate" [matDatepickerFilter]="dateFilter"
+                name="selectedDate" required>
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+
+        <mat-form-field *ngIf="selectedDate">
+            <mat-label>Prefered Time</mat-label>
+            <input matInput [matTimepicker]="timepicker" [(ngModel)]="selectedTime" name="selectedTime" required>
+            <mat-timepicker-toggle matSuffix [for]="timepicker"></mat-timepicker-toggle>
+            <mat-timepicker #timepicker [options]="timeOptions"></mat-timepicker>
+        </mat-form-field>
+
+        <p>Tell a bit about your request:<br /> - what carriers are you most interested in, <br /> - how is your
+            experience with babywearing so far, <br /> - what questions would you like to address?</p>
+        <mat-form-field>
+            <mat-label>Share here</mat-label>
+            <textarea matInput [(ngModel)]="request" name="request" required></textarea>
+        </mat-form-field>
+
+        <button mat-raised-button color="primary" type="submit">Submit Booking</button>
+    </form>
+</div>
+
+<ng-template #confirmation>
+    <app-booking-confirmation></app-booking-confirmation>
+</ng-template>

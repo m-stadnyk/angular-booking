@@ -1,0 +1,12 @@
+form {
+    flex-direction: column;
+    gap: 16px; 
+  }
+  
+  mat-form-field {
+    width: 100%; 
+  }
+  
+  button {
+    align-self: flex-start; 
+  }
