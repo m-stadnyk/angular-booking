@@ -34,9 +34,7 @@ export class BookingFormComponent {
   selectedTime!: Date;
   request = '';
   bookingSubmitted = false;
-  errors = [];
-  haveErrors = false;
-  
+  errors: string[] = [];
 
   timeOptions = [
     { label: 'Morning (10am-12pm)', value: new Date(0, 0, 0, 10, 0) },
@@ -69,7 +67,6 @@ export class BookingFormComponent {
     }
 
     if (errors.length > 0) {
-      this.haveErrors = true;
       return;
     }
 

@@ -1,7 +1,14 @@
 <div *ngIf="!bookingSubmitted; else confirmation">
     <h1>Request Consultation</h1>
     <p>Fill in the form below to request a consultation. I will get back to you as soon as possible to confirm the date
-        and time.</p>
+        and time.
+    </p>
+    <div class="error" *ngIf="errors.length > 0" class="error-messages">
+        <p>Please fill out the following fields:</p>
+        <ul>
+          <li *ngFor="let error of errors">{{ error }}</li>
+        </ul>
+      </div>
     <form (ngSubmit)="submitBooking()">
         <mat-form-field>
             <mat-label>Your Name</mat-label>
