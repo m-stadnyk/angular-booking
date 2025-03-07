@@ -1,4 +1,4 @@
-# BwBooking
+# Babywearing Consultation Booking Requester - BwBooking
 
 BwBooking is a web application designed to facilitate booking consultations for babywearing. Users can fill out a form to request a consultation, specifying their preferred date and time. Once the booking is successfully submitted, a confirmation message is displayed.
 
